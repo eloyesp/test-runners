@@ -1,4 +1,4 @@
-FROM ruby:2.5-stretch
+FROM ruby:2.6-stretch
 
 # install mysql-client, nodejs and yarn
 RUN set -ex \
