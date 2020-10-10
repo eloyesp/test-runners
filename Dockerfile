@@ -1,9 +1,9 @@
-FROM ruby:2.6-stretch
+FROM ruby:2.6-buster
 
 # install mysql-client, nodejs and yarn
 RUN set -ex \
       && (curl -sS https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -) \
-      && (echo "deb http://deb.nodesource.com/node_10.x stretch main" | tee /etc/apt/sources.list.d/nodesource.list) \
+      && (echo "deb http://deb.nodesource.com/node_10.x buster main" | tee /etc/apt/sources.list.d/nodesource.list) \
       && (curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -) \
       && (echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list) \
       && apt-get update \
