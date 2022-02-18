@@ -1,0 +1,19 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      run: docker login -u eloyesp -p ${{ secrets.DOCKER_TOKEN }}
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag eloyesp/test-runners:$(date +%s)
+    - name: Docker push
+      run: docker push eloyesp/test-runners
